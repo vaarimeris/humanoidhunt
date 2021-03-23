@@ -1,17 +1,3 @@
-##kasittele kaikkia samaan aikaan
-##numerot antaa alotuskoordinaatit, kirjaimet perassa muuttaa koordinaatteja sen verran kun ne sanoo
-##kun kaksi koordinaattia paatyy samaan tai vierekkaiseen koordinaattiin, ne yhdistyy
-##muuta tiedosto tiedostoksi, jossa jokaisella rivilla on kakiulotteinen lista koordinaatteja
-##vaihtele rivien jarjestysta niin kauan, etta loytyy reitti
-    #aloita rivista, jossa on S
-    #iteroi uusimman listan komponentteja yksi kerrallaan
-        #jokaisen kohdalla iteroi lista kerrallaan komponenttien yli
-    #kun loytyy lista, jossa on sama tai vierekkainen koordinaatti, lisaa se taas tiedoston viimeiseksi, ja vertaa nyt siihen, kunnes loytyy lista, jossa on F, lopeta
-    #tallenna samalla viereisten koodinaattien sijainnit uuteen listaan, kaksiulotteiseen muodossa (rivin numero tiedostossa; koordinaatin paikka listassa)
-    #etsi alkuperaisesta tiedostosta S -> A1 -> B1 -> B2 -> C1 -> C2 ... -> ... F
-    #lue aina C1 -> C2, riippumatta siita, onko se alkuun vai loppuun.
-
-
 
 def make_into_coordinates():
     coordinates = []
@@ -167,7 +153,7 @@ def make_into_coordinates():
     #print(Ssijainnit)
 
 
-    return cods3
+    return cods3, Fsijainnit, Xsijainnit, Ssijainnit
 
     #print(S_sijainnit)
     #print(F_sijainnit)
@@ -328,10 +314,10 @@ def write_as_UDLR(reitti):
 
 def main():
     cods3 = []
-    S_sijainnit = [2,2]
-    F_sijainnit = [[105,15],[105,12],[105,13],[111,15],[122,15],[105,6],[119,15],[105,4],[113,15],[105,10],[117,15]]
-    X_sijainnit = [[127,30],[78,29],[105,44],[0,113],[22,127],[0,108],[0,124],[127,69],[127,68],[0,68]]
-    cods3 = make_into_coordinates()
+    S_sijainnit =  [] #[2,2]
+    F_sijainnit =  [] #[[105,15],[105,12],[105,13],[111,15],[122,15],[105,6],[119,15],[105,4],[113,15],[105,10],[117,15]]
+    X_sijainnit =  [] #[[127,30],[78,29],[105,44],[0,113],[22,127],[0,108],[0,124],[127,69],[127,68],[0,68]]
+     cods3, Fsijainnit, Xsijainnit, Ssijainnit = make_into_coordinates()
     #print(cods3)
     previous_coordinate = []
     biglist = []
